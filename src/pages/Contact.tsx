@@ -8,9 +8,11 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const Contact = () => {
   const { toast } = useToast();
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -34,8 +36,8 @@ const Contact = () => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
     toast({
-      title: "Message sent successfully!",
-      description: "We'll get back to you as soon as possible.",
+      title: t("contact.success"),
+      description: t("contact.successDesc"),
     });
 
     setFormData({ name: "", email: "", subject: "", message: "" });
@@ -45,18 +47,18 @@ const Contact = () => {
   const contactInfo = [
     {
       icon: MapPin,
-      title: "Visit Us",
-      content: "Tripoli, Libya",
+      title: t("contact.visit"),
+      content: t("contact.address"),
     },
     {
       icon: Phone,
-      title: "Call Us",
-      content: "+218 XX XXX XXXX",
+      title: t("contact.call"),
+      content: t("contact.phone"),
     },
     {
       icon: Mail,
-      title: "Email Us",
-      content: "info@libyainvestech.ly",
+      title: t("contact.email"),
+      content: t("contact.emailAddress"),
     },
   ];
 
@@ -73,10 +75,10 @@ const Contact = () => {
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="text-4xl md:text-5xl font-bold text-primary-foreground mb-6">
-                Get in Touch
+                {t("contact.title")}
               </h1>
               <p className="text-xl text-primary-foreground/90">
-                Have a question or want to work together? We'd love to hear from you.
+                {t("contact.subtitle")}
               </p>
             </div>
           </div>

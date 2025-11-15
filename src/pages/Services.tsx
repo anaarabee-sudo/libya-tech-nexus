@@ -17,68 +17,71 @@ import {
   Settings,
   Award,
 } from "lucide-react";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const Services = () => {
+  const { t } = useTranslation();
+
   const mainServices = [
     {
       icon: TrendingUp,
-      title: "Technology Investment",
-      description: "Strategic investments in cutting-edge technology companies and innovative startups across Libya. We provide capital and guidance to help technology ventures scale effectively.",
+      title: t("services.techInvestment"),
+      description: t("services.techInvestmentDesc"),
     },
     {
       icon: Users,
-      title: "Startup Funding",
-      description: "Comprehensive funding solutions for early-stage to growth-stage technology startups. From seed funding to Series A and beyond, we support entrepreneurs at every stage.",
+      title: t("services.startupFunding"),
+      description: t("services.startupFundingDesc"),
     },
     {
       icon: Target,
-      title: "Business Consulting",
-      description: "Expert guidance and strategic advisory services to help businesses scale and succeed. Our consultants bring years of experience in technology and business development.",
+      title: t("services.consulting"),
+      description: t("services.consultingDesc"),
     },
     {
       icon: Briefcase,
-      title: "Market Analysis",
-      description: "In-depth market research and analysis to identify emerging opportunities in the tech sector. We help you understand market dynamics and competitive landscapes.",
+      title: t("services.marketAnalysis"),
+      description: t("services.marketAnalysisDesc"),
     },
     {
       icon: Rocket,
-      title: "Startup Acceleration",
-      description: "Comprehensive acceleration programs designed to fast-track startup growth with mentorship, resources, and strategic partnerships.",
+      title: t("services.acceleration"),
+      description: t("services.accelerationDesc"),
     },
     {
       icon: LineChart,
-      title: "Growth Strategy",
-      description: "Tailored growth strategies that align with your business goals, market positioning, and long-term vision for sustainable expansion.",
+      title: t("services.growth"),
+      description: t("services.growthDesc"),
     },
     {
       icon: Shield,
-      title: "Risk Management",
-      description: "Professional risk assessment and mitigation strategies to protect investments and ensure sustainable business growth.",
+      title: t("services.risk"),
+      description: t("services.riskDesc"),
     },
     {
       icon: Globe,
-      title: "International Expansion",
-      description: "Support for companies looking to expand beyond Libya, including market entry strategies and international partnership facilitation.",
+      title: t("services.expansion"),
+      description: t("services.expansionDesc"),
     },
     {
       icon: Lightbulb,
-      title: "Innovation Consulting",
-      description: "Help organizations foster innovation cultures, develop new products, and stay ahead of technological trends.",
+      title: t("services.innovation"),
+      description: t("services.innovationDesc"),
     },
     {
       icon: Database,
-      title: "Data & Analytics",
-      description: "Advanced data analytics services to inform decision-making and optimize business operations.",
+      title: t("services.data"),
+      description: t("services.dataDesc"),
     },
     {
       icon: Settings,
-      title: "Operational Excellence",
-      description: "Process optimization and operational efficiency consulting to streamline business operations and reduce costs.",
+      title: t("services.operations"),
+      description: t("services.operationsDesc"),
     },
     {
       icon: Award,
-      title: "Portfolio Management",
-      description: "Comprehensive portfolio management services ensuring optimal performance and strategic alignment across investments.",
+      title: t("services.portfolio"),
+      description: t("services.portfolioDesc"),
     },
   ];
 

@@ -5,43 +5,46 @@ import ServiceCard from "@/components/ServiceCard";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { TrendingUp, Users, Target, Briefcase, ArrowRight, CheckCircle2 } from "lucide-react";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const Index = () => {
+  const { t } = useTranslation();
+
   const services = [
     {
       icon: TrendingUp,
-      title: "Technology Investment",
-      description: "Strategic investments in cutting-edge technology companies and innovative startups across Libya.",
+      title: t("services.techInvestment"),
+      description: t("services.techInvestmentDesc"),
     },
     {
       icon: Users,
-      title: "Startup Funding",
-      description: "Comprehensive funding solutions for early-stage to growth-stage technology startups.",
+      title: t("services.startupFunding"),
+      description: t("services.startupFundingDesc"),
     },
     {
       icon: Target,
-      title: "Business Consulting",
-      description: "Expert guidance and strategic advisory services to help businesses scale and succeed.",
+      title: t("services.consulting"),
+      description: t("services.consultingDesc"),
     },
     {
       icon: Briefcase,
-      title: "Market Analysis",
-      description: "In-depth market research and analysis to identify emerging opportunities in the tech sector.",
+      title: t("services.marketAnalysis"),
+      description: t("services.marketAnalysisDesc"),
     },
   ];
 
   const stats = [
-    { number: "50+", label: "Funded Companies" },
-    { number: "$10M+", label: "Invested Capital" },
-    { number: "15+", label: "Years Experience" },
-    { number: "100%", label: "Success Rate" },
+    { number: "50+", label: t("stats.funded") },
+    { number: "$10M+", label: t("stats.invested") },
+    { number: "15+", label: t("stats.experience") },
+    { number: "100%", label: t("stats.success") },
   ];
 
   const achievements = [
-    "Leading technology investment firm in Libya",
-    "Strong portfolio of successful startups",
-    "Expert team with international experience",
-    "Proven track record of sustainable growth",
+    t("whyChoose.achievement1"),
+    t("whyChoose.achievement2"),
+    t("whyChoose.achievement3"),
+    t("whyChoose.achievement4"),
   ];
 
   return (
@@ -73,10 +76,10 @@ const Index = () => {
           <div className="container mx-auto px-4">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Our Services
+                {t("services.title")}
               </h2>
               <p className="text-lg text-muted-foreground">
-                Comprehensive investment and consulting services tailored to drive technological innovation in Libya.
+                {t("services.subtitle")}
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -92,7 +95,7 @@ const Index = () => {
             <div className="text-center mt-12">
               <Button variant="default" size="lg" asChild>
                 <Link to="/services" className="group">
-                  View All Services
+                  {t("services.viewAll")}
                   <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
@@ -106,7 +109,7 @@ const Index = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
                 <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-                  Why Choose Libya Inves Tech?
+                  {t("whyChoose.title")}
                 </h2>
                 <p className="text-lg text-muted-foreground mb-8">
                   We combine deep market knowledge with international expertise to identify and nurture the most promising technology ventures in Libya.
