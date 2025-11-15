@@ -2,8 +2,11 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import heroImage from "@/assets/hero-bg.jpg";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const Hero = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="relative min-h-[600px] flex items-center overflow-hidden">
       {/* Background Image with Overlay */}
@@ -20,22 +23,21 @@ const Hero = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-6 animate-fade-in">
-            Investing in Libya's
-            <span className="block text-secondary">Technology Future</span>
+            {t("hero.title1")}
+            <span className="block text-secondary">{t("hero.title2")}</span>
           </h1>
           <p className="text-lg md:text-xl text-primary-foreground/90 mb-8 leading-relaxed">
-            Libya Inves Tech is pioneering technology investment in Libya, empowering startups and
-            established companies to innovate, grow, and transform the digital landscape.
+            {t("hero.description")}
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Button variant="hero" size="lg" asChild>
               <Link to="/contact" className="group">
-                Get Started
+                {t("hero.getStarted")}
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>
             <Button variant="outline" size="lg" asChild className="bg-transparent border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
-              <Link to="/services">Our Services</Link>
+              <Link to="/services">{t("hero.services")}</Link>
             </Button>
           </div>
         </div>

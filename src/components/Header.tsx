@@ -1,21 +1,29 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Languages } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const { language, setLanguage } = useLanguage();
+  const { t } = useTranslation();
 
   const navLinks = [
-    { name: "Home", nameAr: "الرئيسية", path: "/" },
-    { name: "Services", nameAr: "خدماتنا", path: "/services" },
-    { name: "About Us", nameAr: "من نحن", path: "/about" },
-    { name: "Contact", nameAr: "اتصل بنا", path: "/contact" },
+    { key: "nav.home", path: "/" },
+    { key: "nav.services", path: "/services" },
+    { key: "nav.about", path: "/about" },
+    { key: "nav.contact", path: "/contact" },
   ];
 
   const isActive = (path: string) => location.pathname === path;
+
+  const toggleLanguage = () => {
+    setLanguage(language === "en" ? "ar" : "en");
+  };
 
   return (
     <header className="sticky top-0 z-50 bg-card/95 backdrop-blur-sm shadow-md border-b border-border">
@@ -45,7 +53,7 @@ const Header = () => {
                     : "text-foreground hover:text-primary"
                 )}
               >
-                {link.name}
+                {t(link.key)}
                 <span
                   className={cn(
                     "absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full",
@@ -54,8 +62,15 @@ const Header = () => {
                 />
               </Link>
             ))}
+            <button
+              onClick={toggleLanguage}
+              className="p-2 rounded-lg hover:bg-muted transition-colors"
+              aria-label="Toggle language"
+            >
+              <Languages className="w-5 h-5 text-foreground" />
+            </button>
             <Button variant="hero" size="sm" asChild>
-              <Link to="/contact">Get Started</Link>
+              <Link to="/contact">{t("nav.getStarted")}</Link>
             </Button>
           </nav>
 
@@ -89,12 +104,19 @@ const Header = () => {
                       : "text-foreground hover:bg-muted"
                   )}
                 >
-                  {link.name}
+                  {t(link.key)}
                 </Link>
               ))}
+              <button
+                onClick={toggleLanguage}
+                className="flex items-center gap-2 text-sm font-medium py-2 px-4 rounded-lg transition-colors text-foreground hover:bg-muted"
+              >
+                <Languages className="w-4 h-4" />
+                {language === "en" ? "العربية" : "English"}
+              </button>
               <Button variant="hero" size="sm" asChild className="w-full">
                 <Link to="/contact" onClick={() => setIsMenuOpen(false)}>
-                  Get Started
+                  {t("nav.getStarted")}
                 </Link>
               </Button>
             </div>

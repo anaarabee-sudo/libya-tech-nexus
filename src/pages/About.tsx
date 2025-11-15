@@ -4,36 +4,39 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { CheckCircle2, Target, Eye, Award } from "lucide-react";
 import aboutImage from "@/assets/about-image.jpg";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const About = () => {
+  const { t } = useTranslation();
+
   const values = [
     {
       icon: Target,
-      title: "Innovation First",
-      description: "We believe in the transformative power of technology and innovation to drive economic growth.",
+      title: t("values.innovation"),
+      description: t("values.innovationDesc"),
     },
     {
       icon: CheckCircle2,
-      title: "Integrity",
-      description: "Trust and transparency are the cornerstones of our relationships with partners and clients.",
+      title: t("values.integrity"),
+      description: t("values.integrityDesc"),
     },
     {
       icon: Eye,
-      title: "Vision",
-      description: "We see beyond today's challenges to identify tomorrow's opportunities.",
+      title: t("values.vision"),
+      description: t("values.visionDesc"),
     },
     {
       icon: Award,
-      title: "Excellence",
-      description: "We are committed to delivering exceptional results and exceeding expectations.",
+      title: t("values.excellence"),
+      description: t("values.excellenceDesc"),
     },
   ];
 
   const milestones = [
-    { year: "2010", event: "Libya Inves Tech founded" },
-    { year: "2015", event: "Reached $5M in investments" },
-    { year: "2020", event: "50+ successful investments" },
-    { year: "2024", event: "Leading tech investor in Libya" },
+    { year: "2010", event: t("milestones.2010") },
+    { year: "2015", event: t("milestones.2015") },
+    { year: "2020", event: t("milestones.2020") },
+    { year: "2024", event: t("milestones.2024") },
   ];
 
   return (
@@ -49,10 +52,10 @@ const About = () => {
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="text-4xl md:text-5xl font-bold text-primary-foreground mb-6">
-                About Us
+                {t("about.title")}
               </h1>
               <p className="text-xl text-primary-foreground/90">
-                Pioneering technology investment and innovation in Libya since 2010.
+                {t("about.subtitle")}
               </p>
             </div>
           </div>
@@ -64,18 +67,12 @@ const About = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
                 <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-                  Our Story
+                  {t("about.story")}
                 </h2>
                 <div className="space-y-4 text-lg text-muted-foreground">
-                  <p>
-                    Libya Inves Tech was founded with a clear mission: to identify, fund, and nurture technology companies that would drive Libya's digital transformation. Since our inception, we have been at the forefront of technology investment in the region.
-                  </p>
-                  <p>
-                    Our team combines deep local market knowledge with international investment expertise. We understand the unique challenges and opportunities in Libya's technology sector and work closely with entrepreneurs to overcome obstacles and achieve sustainable growth.
-                  </p>
-                  <p>
-                    Today, we are proud to have supported over 50 companies across various technology sectors, from fintech to e-commerce, from software development to digital services. Our portfolio companies have created hundreds of jobs and contributed significantly to Libya's economy.
-                  </p>
+                  <p>{t("about.storyP1")}</p>
+                  <p>{t("about.storyP2")}</p>
+                  <p>{t("about.storyP3")}</p>
                 </div>
               </div>
               <div className="relative">

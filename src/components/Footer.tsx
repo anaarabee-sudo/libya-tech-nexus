@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook } from "lucide-react";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const { t } = useTranslation();
 
   return (
     <footer className="bg-primary text-primary-foreground">
@@ -20,7 +22,7 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-sm text-primary-foreground/80">
-              Leading technology investment company in Libya, empowering innovation and driving digital transformation.
+              {t("footer.tagline")}
             </p>
             <div className="flex gap-4">
               <a
@@ -49,26 +51,26 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-bold text-lg mb-4">Quick Links</h3>
+            <h3 className="font-bold text-lg mb-4">{t("footer.quickLinks")}</h3>
             <ul className="space-y-2">
               <li>
                 <Link to="/" className="text-sm text-primary-foreground/80 hover:text-secondary transition-colors">
-                  Home
+                  {t("nav.home")}
                 </Link>
               </li>
               <li>
                 <Link to="/services" className="text-sm text-primary-foreground/80 hover:text-secondary transition-colors">
-                  Services
+                  {t("nav.services")}
                 </Link>
               </li>
               <li>
                 <Link to="/about" className="text-sm text-primary-foreground/80 hover:text-secondary transition-colors">
-                  About Us
+                  {t("nav.about")}
                 </Link>
               </li>
               <li>
                 <Link to="/contact" className="text-sm text-primary-foreground/80 hover:text-secondary transition-colors">
-                  Contact
+                  {t("nav.contact")}
                 </Link>
               </li>
             </ul>
@@ -76,30 +78,30 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h3 className="font-bold text-lg mb-4">Our Services</h3>
+            <h3 className="font-bold text-lg mb-4">{t("footer.ourServices")}</h3>
             <ul className="space-y-2">
-              <li className="text-sm text-primary-foreground/80">Technology Investment</li>
-              <li className="text-sm text-primary-foreground/80">Startup Funding</li>
-              <li className="text-sm text-primary-foreground/80">Business Consulting</li>
-              <li className="text-sm text-primary-foreground/80">Market Analysis</li>
+              <li className="text-sm text-primary-foreground/80">{t("footer.techInvestment")}</li>
+              <li className="text-sm text-primary-foreground/80">{t("footer.startupFunding")}</li>
+              <li className="text-sm text-primary-foreground/80">{t("footer.consulting")}</li>
+              <li className="text-sm text-primary-foreground/80">{t("footer.marketAnalysis")}</li>
             </ul>
           </div>
 
           {/* Contact Info */}
           <div>
-            <h3 className="font-bold text-lg mb-4">Contact Us</h3>
+            <h3 className="font-bold text-lg mb-4">{t("footer.contactUs")}</h3>
             <ul className="space-y-3">
               <li className="flex items-start gap-2 text-sm text-primary-foreground/80">
                 <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                <span>Tripoli, Libya</span>
+                <span>{t("contact.address")}</span>
               </li>
               <li className="flex items-start gap-2 text-sm text-primary-foreground/80">
                 <Phone className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                <span>+218 XX XXX XXXX</span>
+                <span>{t("contact.phone")}</span>
               </li>
               <li className="flex items-start gap-2 text-sm text-primary-foreground/80">
                 <Mail className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                <span>info@libyainvestech.ly</span>
+                <span>{t("contact.emailAddress")}</span>
               </li>
             </ul>
           </div>
@@ -107,7 +109,7 @@ const Footer = () => {
 
         <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center">
           <p className="text-sm text-primary-foreground/80">
-            © {currentYear} Libya Inves Tech. All rights reserved.
+            © {currentYear} Libya Inves Tech. {t("footer.rights")}
           </p>
         </div>
       </div>
