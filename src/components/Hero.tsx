@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import heroImage from "@/assets/hero-bg.jpg";
+import heroImageWebP from "@/assets/hero-bg.webp";
 import { useTranslation } from "@/hooks/useTranslation";
 
 const Hero = () => {
@@ -11,12 +12,15 @@ const Hero = () => {
     <section className="relative min-h-[600px] flex items-center overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
-        <img
-          src={heroImage}
-          alt="Libya Inves Tech - Technology Investment"
-          className="w-full h-full object-cover"
-          fetchPriority="high"
-        />
+        <picture>
+          <source srcSet={heroImageWebP} type="image/webp" />
+          <img
+            src={heroImage}
+            alt="Libya Inves Tech - Technology Investment"
+            className="w-full h-full object-cover"
+            fetchPriority="high"
+          />
+        </picture>
         <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/70 to-accent/60" />
       </div>
 
