@@ -15,6 +15,7 @@ const Hero = () => {
           src={heroImage}
           alt="Libya Inves Tech - Technology Investment"
           className="w-full h-full object-cover"
+          fetchPriority="high"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/70 to-accent/60" />
       </div>
